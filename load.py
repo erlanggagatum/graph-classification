@@ -6,4 +6,4 @@ from torch_geometric.datasets import TUDataset
 def loadTUDataset():
   return TUDataset(root='data/TUDataset', name='MUTAG')
 
-# loadTUDataset()
+# print(loadTUDataset())

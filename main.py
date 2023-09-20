@@ -7,6 +7,8 @@ import pickle
 def main():
   # Load dataset
   dataset = loadTUDataset()
+  # print(dataset)
+  # return ""
 
   # Divide to train test
   train_dataset, test_dataset = train_test_split(dataset=dataset, ratio=0.8, shuffle=True, seed=12345)
@@ -34,7 +36,7 @@ def main():
     #model = model(dataset=dataset, hidden_channels=64)
     print(f'Model info: {model}')
     # # train modelt
-    for epoch in range(0,50):
+    for epoch in range(0,25):
       _, loss = train(model=model, loader=train_loader)
       train_acc = test(model=model,loader=train_loader)
       test_acc = test(model=model,loader=test_loader)
@@ -43,7 +45,7 @@ def main():
       history[idx]['test_acc'].append(round(test_acc,4))
       history[idx]['loss'].append(round(loss.item(),4))
 
-      if (epoch % 10 == 0):
+      if (epoch % 5 == 0):
         print(f'Epoch: {epoch+1} loss: {loss:.4f} train_acc: {train_acc:.4f} test_acc: {test_acc:.4f}')
     print('==============================/n/n')
   # print(history)
